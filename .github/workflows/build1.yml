@@ -1,0 +1,19 @@
+name: Build
+
+on:
+  workflow_dispatch:
+    inputs:
+      package_name:
+        description: 'com.weplay.ru'
+        required: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Run build script
+        run: |
+          echo "Building package for ${{ github.event.inputs.package_name }}"
+          # Ваш скрипт сборки здесь
